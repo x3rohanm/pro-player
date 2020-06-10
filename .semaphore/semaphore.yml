@@ -1,0 +1,81 @@
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: 'Block #1'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - sudo apt update
+            - 'sudo apt install -y --no-install-recommends --no-install-suggests ca-certificates curl desktop-file-utils libappindicator3-1 libasound2 libgbm1 libgtk-3-0 libnotify4 libnss3 libsecret-1-0 libxss1 libxtst6 unzip wget xdg-utils xvfb '
+            - 'curl -L -O -s https://github.com/feelingsurf/viewer/releases/download/v${FSVIEWER_VERSION}/FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb '
+            - 'sudo dpkg -i FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb'
+            - timeout 48m FeelingSurfViewer --no-sandbox
+        - name: 'Job #2'
+          commands:
+            - sudo apt update
+            - 'sudo apt install -y --no-install-recommends --no-install-suggests ca-certificates curl desktop-file-utils libappindicator3-1 libasound2 libgbm1 libgtk-3-0 libnotify4 libnss3 libsecret-1-0 libxss1 libxtst6 unzip wget xdg-utils xvfb '
+            - 'curl -L -O -s https://github.com/feelingsurf/viewer/releases/download/v${FSVIEWER_VERSION}/FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb '
+            - 'sudo dpkg -i FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb'
+            - timeout 51m FeelingSurfViewer --no-sandbox
+        - name: 'Job #3'
+          commands:
+            - sudo apt update
+            - 'sudo apt install -y --no-install-recommends --no-install-suggests ca-certificates curl desktop-file-utils libappindicator3-1 libasound2 libgbm1 libgtk-3-0 libnotify4 libnss3 libsecret-1-0 libxss1 libxtst6 unzip wget xdg-utils xvfb '
+            - 'curl -L -O -s https://github.com/feelingsurf/viewer/releases/download/v${FSVIEWER_VERSION}/FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb '
+            - 'sudo dpkg -i FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb'
+            - timeout 50m FeelingSurfViewer --no-sandbox
+        - name: 'Job #4'
+          commands:
+            - sudo apt update
+            - 'sudo apt install -y --no-install-recommends --no-install-suggests ca-certificates curl desktop-file-utils libappindicator3-1 libasound2 libgbm1 libgtk-3-0 libnotify4 libnss3 libsecret-1-0 libxss1 libxtst6 unzip wget xdg-utils xvfb '
+            - 'curl -L -O -s https://github.com/feelingsurf/viewer/releases/download/v${FSVIEWER_VERSION}/FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb '
+            - 'sudo dpkg -i FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb'
+            - timeout 52m FeelingSurfViewer --no-sandbox
+      env_vars:
+        - name: FSVIEWER_VERSION
+          value: 1.3.0
+        - name: access_token
+          value: 91735fe1059af6e870aa23cf5bc2cdba
+    dependencies: []
+  - name: 'Block #2'
+    dependencies: []
+    task:
+      env_vars:
+        - name: FSVIEWER_VERSION
+          value: 1.3.0
+        - name: access_token
+          value: 91735fe1059af6e870aa23cf5bc2cdba
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - sudo apt update
+            - 'sudo apt install -y --no-install-recommends --no-install-suggests ca-certificates curl desktop-file-utils libappindicator3-1 libasound2 libgbm1 libgtk-3-0 libnotify4 libnss3 libsecret-1-0 libxss1 libxtst6 unzip wget xdg-utils xvfb '
+            - 'curl -L -O -s https://github.com/feelingsurf/viewer/releases/download/v${FSVIEWER_VERSION}/FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb '
+            - 'sudo dpkg -i FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb'
+            - timeout 48m FeelingSurfViewer --no-sandbox
+        - name: 'Job #2'
+          commands:
+            - sudo apt update
+            - 'sudo apt install -y --no-install-recommends --no-install-suggests ca-certificates curl desktop-file-utils libappindicator3-1 libasound2 libgbm1 libgtk-3-0 libnotify4 libnss3 libsecret-1-0 libxss1 libxtst6 unzip wget xdg-utils xvfb '
+            - 'curl -L -O -s https://github.com/feelingsurf/viewer/releases/download/v${FSVIEWER_VERSION}/FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb '
+            - 'sudo dpkg -i FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb'
+            - timeout 50m FeelingSurfViewer --no-sandbox
+        - name: 'Job #3'
+          commands:
+            - sudo apt update
+            - 'sudo apt install -y --no-install-recommends --no-install-suggests ca-certificates curl desktop-file-utils libappindicator3-1 libasound2 libgbm1 libgtk-3-0 libnotify4 libnss3 libsecret-1-0 libxss1 libxtst6 unzip wget xdg-utils xvfb '
+            - 'curl -L -O -s https://github.com/feelingsurf/viewer/releases/download/v${FSVIEWER_VERSION}/FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb '
+            - 'sudo dpkg -i FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb'
+            - timeout 49m FeelingSurfViewer --no-sandbox
+        - name: 'Job #4'
+          commands:
+            - sudo apt update
+            - 'sudo apt install -y --no-install-recommends --no-install-suggests ca-certificates curl desktop-file-utils libappindicator3-1 libasound2 libgbm1 libgtk-3-0 libnotify4 libnss3 libsecret-1-0 libxss1 libxtst6 unzip wget xdg-utils xvfb '
+            - 'curl -L -O -s https://github.com/feelingsurf/viewer/releases/download/v${FSVIEWER_VERSION}/FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb '
+            - 'sudo dpkg -i FeelingSurfViewer-linux-amd64-${FSVIEWER_VERSION}.deb'
+            - timeout 52m FeelingSurfViewer --no-sandbox
